@@ -8,7 +8,6 @@
 
 <div class="container">
 	{#if (!$network.name)}
-		mediaeval-roadblock-preceded-wholly
 		{:else }
 	<div class="columns">
 		<div class="column is-3">
