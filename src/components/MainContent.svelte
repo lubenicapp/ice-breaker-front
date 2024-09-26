@@ -2,19 +2,19 @@
 	import { network } from "../stores";
 
 	import Graph from "./cells/Graph.svelte";
+	import AddMember from "./cells/AddMember.svelte";
 
 </script>
 
 <div class="container">
 	{#if (!$network.name)}
-		Nothing
+		mediaeval-roadblock-preceded-wholly
 		{:else }
 	<div class="columns">
 		<div class="column is-3">
-			<label class="label" for="">Add a member with a linkedin url</label>
-			<input class="input" type="text" placeholder="https://www.linkedin.com/in/joe-letaxi">
+			<AddMember></AddMember>
 		</div>
-		<div class="column is-6">
+		<div class="column is-8">
 			<Graph></Graph>
 		</div>
 	</div>
@@ -26,9 +26,4 @@
 	.container {
 			width: 80%
 	}
-
-	.input {
-			margin-left: -12px;
-	}
-
 </style>
