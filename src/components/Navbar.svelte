@@ -3,13 +3,13 @@
   import {network} from "../stores.js";
   import SignIn from "./cells/SignIn.svelte";
 
-	let title = 'nav'
+	let title = ''
 
 	network.subscribe(() => {
-        if ($network)
-          title = `${get(network).name} Network`
+        if ($network && get(network).name)
+            title = `${get(network).name} Network`
 				else
-          title = 'nav'
+          title = ''
 	})
 
 </script>

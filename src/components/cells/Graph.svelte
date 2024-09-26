@@ -40,28 +40,24 @@
 
     function loadGraph() {
         if (!graph) {
-            graph = ForceGraph3D()(graphContainer) // Use the reference
+            graph = ForceGraph3D()(graphContainer)
                 .nodeThreeObject(({ img, name }) => {
                     const group = new THREE.Group();
 
-                    // Load image texture
                     const imgTexture = new THREE.TextureLoader().load(img);
                     imgTexture.colorSpace = THREE.SRGBColorSpace;
                     const material = new THREE.SpriteMaterial({ map: imgTexture });
                     const sprite = new THREE.Sprite(material);
-                    sprite.scale.set(24, 24); // Scale the image
+                    sprite.scale.set(24, 24);
 
-                    // Add sprite to the group
                     group.add(sprite);
 
-                    // Create text label as a texture
                     const canvas = document.createElement('canvas');
                     const context = canvas.getContext('2d');
                     context.font = '40px Arial';
                     context.fillStyle = '#069100';
                     context.fillText(name, 0, 50);
 
-                    // Create texture from the canvas
                     const textTexture = new THREE.CanvasTexture(canvas);
                     const textMaterial = new THREE.SpriteMaterial({ map: textTexture });
                     const textSprite = new THREE.Sprite(textMaterial);
