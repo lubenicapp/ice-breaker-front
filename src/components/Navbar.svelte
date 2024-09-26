@@ -1,13 +1,13 @@
 <script>
 	import {get} from "svelte/store";
-  import {email} from "../stores.js";
+  import {network} from "../stores.js";
   import SignIn from "./cells/SignIn.svelte";
 
 	let title = 'nav'
 
-	email.subscribe(() => {
-        if (get(email))
-          title = `Hello ${get(email)}`
+	network.subscribe(() => {
+        if ($network)
+          title = `${get(network).name} Network`
 				else
           title = 'nav'
 	})
@@ -22,7 +22,9 @@
 			</h1>
 		</div>
 		<div class="">
-			<SignIn/>
+			{#if (!$network.name)}
+				<SignIn/>
+			{/if}
 		</div>
 	</div>
 </div>
@@ -32,6 +34,6 @@
 	.block {
 			padding-top: 10px;
 			padding-bottom: 10px;
-			border-bottom: cadetblue solid 1px;
+			border-bottom: #0278aa solid 4px;
 	}
 </style>

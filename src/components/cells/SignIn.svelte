@@ -3,7 +3,7 @@ import Button from "../atoms/Button.svelte";
 import Input from "../atoms/Input.svelte";
 
 import {apiEndpoint} from "../../env.js";
-import {userPassPhrase, email} from "../../stores.js";
+import {userPassPhrase, network} from "../../stores.js";
 
 
 let passphrase = '';
@@ -22,11 +22,11 @@ async function fetchData() {
     try {
         const response = await fetch(`${apiEndpoint}/me/`, {headers: {'Network-Identifier': $userPassPhrase}});
         if (!response.ok) {
-            email.set('')
+            network.set('')
             throw new Error('Failed to fetch data');
         }
         res = await response.json();
-        email.set(res.email);
+        network.set(res);
     } catch (err) {
         console.log(err)
     }
