@@ -5,6 +5,8 @@
 		import {apiEndpoint} from "../../env.js";
 		import {userPassPhrase, memberAdded} from "../../stores.js";
 
+		import Loading from "../atoms/Loading.svelte";
+
     let value = '';
 		let success = false;
     let isLoading = false;
@@ -68,7 +70,7 @@
 />
 
 {#if isLoading}
-	<div class="loading-icon"></div>
+	<Loading/>
 {:else if error}
 	<div class="notification is-danger is-light">
 		{error}
@@ -88,15 +90,6 @@
 		    margin-top: 15px;
     }
 
-    .loading-icon {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        border-left-color: #09f;
-        animation: spin 1s linear infinite;
-        margin-top: 10px;
-    }
 
     @keyframes spin {
         0% {

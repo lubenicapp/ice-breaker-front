@@ -72,7 +72,7 @@
                 .width(graphContainer.clientWidth)
                 .height(graphContainer.clientHeight)
                 .d3Force('link').distance(50)
-                .d3Force('charge').strength(0)
+                .d3Force('charge').strength(-30)
                 .linkWidth(100)
                 .linkColor(() => 'green');
         } else {
