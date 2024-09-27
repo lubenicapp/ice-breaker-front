@@ -2,6 +2,7 @@
 	import {get} from "svelte/store";
   import {network} from "../stores.js";
   import SignIn from "./cells/SignIn.svelte";
+	import SignOut from "./cells/SignOut.svelte";
 
 	let title = ''
 
@@ -22,8 +23,10 @@
 			</h1>
 		</div>
 		<div class="">
-			{#if (!$network.name)}
+			{#if (!$network || !$network.name)}
 				<SignIn/>
+			{:else}
+				<SignOut/>
 			{/if}
 		</div>
 	</div>

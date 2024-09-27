@@ -7,8 +7,9 @@
 </script>
 
 <div class="container">
-	{#if (!$network.name)}
-		{:else }
+	{#if (!$network || !$network.name)}
+		<div class="block">-</div>
+	{:else }
 	<div class="columns">
 		<div class="column is-3">
 			<AddMember></AddMember>
